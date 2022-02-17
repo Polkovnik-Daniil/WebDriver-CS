@@ -17,75 +17,72 @@ namespace Tests {
         private Steps.Steps steps = new Steps.Steps();
         //1
         [Test]
-        public void MainPageSearch() {
+        public void A_MainPageSearch() {
             steps.Search();
-            Assert.IsTrue(steps.FindResultSearch());
+            bool result = steps.FindResultSearch();
+            Assert.IsTrue(result);
         }
         //2
         [Test]
-        public void ScreenerFiltration() {
+        public void B_ScreenerFiltration() {
             steps.Filtr();
-            Assert.IsTrue(steps.FindFiltrationInfo());
+            bool result = steps.FindFiltrationInfo();
+            Assert.IsTrue(result);
         }
         //3
         [Test]
-        public void CreatePortfolio() {
+        public void C_CreatePortfolio() {
             steps.CreatePorfolio();
-            Assert.IsTrue(steps.FindPortfolio());
-            steps.DestroyPortfolio();
+            bool result = steps.FindPortfolio();
+            Assert.IsTrue(result);
         }
         //4
         [Test]
-        public void DestroyPortfolio() {
-            steps.CreatePorfolio();
+        public void D_DestroyPortfolio() {
             steps.DestroyPortfolio();
             Assert.IsNull(steps.FindDestroyPortfolio());
         }
         //5
         [Test]
-        public void SearchTicker() {
+        public void E_SearchTicker() {
             steps.SearchScreener();
             Assert.IsNotNull(steps.FindResultSearchScreener());
         }
         //6
         [Test]
-        public void SetParameterSearch() {
+        public void F_SetParameterSearch() {
             steps.SetValue();
             Assert.IsNotNull(steps.FindResultSearchScreener());
         }
         //7
         [Test]
-        public void ResetParameterSearch() {
+        public void G_ResetParameterSearch() {
             steps.SetValue();
             steps.Reset();
             Assert.IsNotNull(steps.FindResultSearchScreener());
         }
         //8
         [Test]
-        public void SaveScreenParameter() {
+        public void H_SaveScreenParameter() {
             steps.SetValue();
             steps.SaveScreenParameter();
             Assert.IsNotNull(steps.FindInfoTab());
-            DeleteScreenParameter();
-        }        
+        }
         //9
         [Test]
-        public void DeleteScreenParameter() {
-            //SaveScreenParameter();
+        public void I_DeleteScreenParameter() {
             steps.DeleteScreenParameter();
             Assert.IsNotNull(steps.FindInfoTab());
         }
         //10    
         [Test]
-        public void AccountSetting() {
+        public void J_AccountSetting() {
             steps.SetParameter();
             Assert.IsTrue(steps.FindInFoAccount());
-            steps.BackParameter();
         }
         //11 additional
         [Test]
-        public void BackAccountSetting() {
-            steps.SetParameter();
+        public void K_BackAccountSetting() {
             steps.BackParameter();
             Assert.IsTrue(steps.FindInFoBackAccount());
         }

@@ -13,7 +13,7 @@ namespace Tests.Steps {
             driver = Driver.DriverInstance.GetInstance();
         }
         public void CloseBrowser() {
-            TestLog.LogStat(TestContext.CurrentContext);
+            //TestLog.LogStat(TestContext.CurrentContext);
             Driver.DriverInstance.CloseBrowser();
         }
         ///////////////////////////////////////////////
@@ -47,7 +47,8 @@ namespace Tests.Steps {
         }
         public bool FindFiltrationInfo() {
             Pages.Screener screener = new Pages.Screener(driver);
-            return screener.FindFiltrationInfo();
+            bool value = screener.FindFiltrationInfo();
+            return value;
         }
         ///////////////////////////////////////////////
         public void CreatePorfolio() {
